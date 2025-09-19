@@ -1,18 +1,27 @@
 const express = require("express");
 
-const mongodb = require("./data/database");
+const { initDb } = require("./data/database");
+const routes = require("./routes");
+
+/// const mongodb = require("./data/database");
 const app = express();
+app.use(express.json());
 
-const port = process.env.PORT || 3000;
+// Mount routes
+app.use("/", routes);
 
-app.use("/", require("./routes"));
+/// const port = process.env.PORT || 3000;
 
-mongodb.initDb((err) => {
+/// app.use("/", require("./routes"));
+
+/// mongodb.initDb((err) => {
+initDb((err) => {
   if (err) {
-    console.log(err);
+    /// console.log(err);
+    console.error(err);
   } else {
-    app.listen(port, () => {
-      console.log(`Database is listening and node Running on port ${port}`);
+    app.listen(3000, () => {
+      console.log(`Database is listening and node Running on port 3000`);
     });
   }
 });

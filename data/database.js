@@ -1,7 +1,7 @@
 const dotenv = require("dotenv");
 dotenv.config();
 
-const MongoClient = require("mongodb").MongoClient;
+const { MongoClient } = require("mongodb");
 
 let database;
 
@@ -12,7 +12,9 @@ const initDb = (callback) => {
   }
   MongoClient.connect(process.env.MONGODB_URL)
     .then((client) => {
-      database = client;
+      // Get the project database
+      database = client.db("project1");
+      console.log("Database connected");
       callback(null, database);
     })
     .catch((err) => {
@@ -27,7 +29,4 @@ const getDatabase = () => {
   return database;
 };
 
-module.exports = {
-  initDb,
-  getDatabase
-};
+module.exports = { initDb, getDatabase };
