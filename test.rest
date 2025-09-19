@@ -1,0 +1,19 @@
+### Test local API - Get all contacts
+GET http://localhost:3000/66fac66b11c9dbad569664c3
+
+### Test local API - Get contact by ID (replace the ID)
+GET http://localhost:3000/contacts/[contact-id]
+
+### Test local root endpoint
+GET http://localhost:3000/66fac66b11c9dbad569664c3
+
+### Production Tests ###
+
+### Test deployed API root endpoint
+GET https://cse341-project1.onrender.com/
+
+### Test deployed API - Get all contacts
+GET https://cse341-project1.onrender.com/contacts
+
+### Test deployed API - Get contact by ID (replace the ID)
+GET https://cse341-project1.onrender.com/contacts/[contact-id]
