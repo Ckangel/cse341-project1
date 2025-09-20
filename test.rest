@@ -1,19 +1,22 @@
-### Test local API - Get all contacts
+### Local Tests ###
+
+# Get all contacts
+GET http://localhost:3000/contacts
+
+# Get contact by ID 
+GET http://localhost:3000/contacts/68c8417520247ffb70089449
+
+# Test root endpoint
 GET http://localhost:3000/
 
-### Test local API - Get contact by ID (replace the ID)
-GET http://localhost:3000/contacts/[contact-id]
-
-### Test local root endpoint
-GET http://localhost:3000/
 
 ### Production Tests ###
 
-### Test deployed API root endpoint
+# Root endpoint
 GET https://cse341-project1.onrender.com/
 
-### Test deployed API - Get all contacts
+# Get all contacts
 GET https://cse341-project1.onrender.com/contacts
 
-### Test deployed API - Get contact by ID (replace the ID)
-GET https://cse341-project1.onrender.com/contacts/[contact-id]
+# Get contact by ID (replace with a real MongoDB _id)
+GET https://cse341-project1.onrender.com/contacts/66f5a64d76d24e36d43b5e29
