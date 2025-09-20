@@ -23,5 +23,5 @@ const getSingle = async (req, res) => {
 
 module.exports = {
   getAll,
-  getSingle,
+  getSingle
 };

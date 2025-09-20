@@ -1,36 +1,45 @@
+require("dotenv").config();
+console.log("🔍 MONGODB_URI:", process.env.MONGODB_URI);
+
 const express = require("express");
 
 const { initDb } = require("./data/database");
-const routes = require("./routes");
+const routes = require("./routes"); // Import all routes from routes/index.js
 
-/// const mongodb = require("./data/database");
 const app = express();
+
+// Middleware
 app.use(express.json());
 
-// Mount routes
-// app.use("/", routes);
+// Root test endpoint
 app.get("/", (req, res) => {
+  res.send("API is live! Try /contacts to see contacts' data");
+});
+app.get("/info", (req, res) => {
   res.json({
     message: "Welcome to the Contacts API 🚀",
     endpoints: {
       allContacts: "/contacts",
       singleContact: "/contacts/:id",
+      addContact: "/contacts (POST)",
+      updateContact: "/contacts/:id (PUT)",
+      deleteContact: "/contacts/:id (DELETE)",
     },
   });
 });
 
-/// const port = process.env.PORT || 3000;
+// Mount all routes (contacts etc.)
+app.use("/", routes);
 
-/// app.use("/", require("./routes"));
+const PORT = process.env.PORT || 3000;
 
-/// mongodb.initDb((err) => {
+// Start server only after DB is initialized
 initDb((err) => {
   if (err) {
-    /// console.log(err);
-    console.error(err);
+    console.error("❌ Failed to connect to database:", err);
   } else {
-    app.listen(3000, () => {
-      console.log(`Database is listening and node Running on port 3000`);
+    app.listen(PORT, () => {
+      console.log(`✅ Database is listening and node Running on port ${PORT}`);
     });
   }
 });

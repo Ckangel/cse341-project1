@@ -13,10 +13,14 @@ GET http://localhost:3000/
 ### Production Tests ###
 
 # Root endpoint
-GET https://cse341-project1.onrender.com/
+#  Access API Guide
+GET https://cse341-project1-x6z9.onrender.com/ 
 
 # Get all contacts
-GET https://cse341-project1.onrender.com/contacts
+GET https://cse341-project1-x6z9.onrender.com/contacts 
 
-# Get contact by ID (replace with a real MongoDB _id)
+# Get contact by ID 
 GET https://cse341-project1.onrender.com/contacts/68c8417520247ffb70089449
+
+
+
