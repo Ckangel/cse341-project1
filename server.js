@@ -8,7 +8,16 @@ const app = express();
 app.use(express.json());
 
 // Mount routes
-app.use("/", routes);
+// app.use("/", routes);
+app.get("/", (req, res) => {
+  res.json({
+    message: "Welcome to the Contacts API 🚀",
+    endpoints: {
+      allContacts: "/contacts",
+      singleContact: "/contacts/:id",
+    },
+  });
+});
 
 /// const port = process.env.PORT || 3000;
 
