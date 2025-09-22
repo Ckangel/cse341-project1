@@ -1,4 +1,9 @@
 require("dotenv").config();
+console.log("🔍 Loaded DB_USER:", process.env.DB_USER);
+console.log("🔍 Loaded DB_PASS:", process.env.DB_PASS);
+console.log("🔍 Loaded DB_NAME:", process.env.DB_NAME);
+
+require("dotenv").config();
 console.log("🔍 MONGODB_URI:", process.env.MONGODB_URI);
 
 const express = require("express");
