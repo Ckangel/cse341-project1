@@ -8,6 +8,12 @@ router.get("/", contactsController.getAll);
 
 router.get("/:id", contactsController.getSingle);
 
+router.post("/", contactsController.createcontact);
+
+router.put("/:id", contactsController.updatecontact);
+
+router.delete("/:id", contactsController.deletecontact);
+
 module.exports = router;
 
 router.use("/contacts", require("./routes/contacts"));
